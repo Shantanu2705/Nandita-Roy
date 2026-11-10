@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-bg: #FFF9ED;
+  --secondary-bg: #FFF3DC;
+  --light-champagne: #F8E8C8;
+  --primary-gold: #F4C84A;
+  --amber: #EFAE32;
+  --warm-orange: #E99A38;
+  --deep-charcoal: #29251F;
+  --warm-brown: #51402C;
+  --white: #FFFFFF;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #FFF9ED;
+  color: #29251F;
+}
+
+body {
+  background-color: #FFF9ED;
+  color: #29251F;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: #F8E8C8;
+  color: #29251F;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FFF9ED;
+}
+::-webkit-scrollbar-thumb {
+  background: #EDD4A6;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #EFAE32;
+}
+
+/* Accessible focus ring */
+:focus-visible {
+  outline: 2px solid #EFAE32;
+  outline-offset: 3px;
+}
+
+/* Typography styles */
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+/* Floating contact buttons pulse animation */
+@keyframes softPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+@keyframes callPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(239, 174, 50, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(239, 174, 50, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 174, 50, 0);
+  }
+}
+
+.pulse-whatsapp {
+  animation: softPulse 2.8s infinite;
+}
+
+.pulse-call {
+  animation: callPulse 2.8s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .pulse-whatsapp, .pulse-call {
+    animation: none !important;
+  }
+}
+
